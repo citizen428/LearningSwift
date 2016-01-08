@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BoozeBuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Yl-pw-TK5" userLabel="Header">
+                                <rect key="frame" x="174" y="144" width="253" height="156"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbP-5K-TS9">
+                                        <rect key="frame" x="0.0" y="0.0" width="253" height="33"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Can I buy booze now?">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.24994756711409397" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="24" name="IowanOldStyle-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74P-hy-GKK">
+                                        <rect key="frame" x="60" y="41" width="133" height="115"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="115" id="aPB-ru-da6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="156" id="hOC-dj-EZY"/>
+                                    <constraint firstAttribute="width" constant="253" id="lP4-Xo-kGw"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hOC-dj-EZY"/>
+                                        <exclude reference="lP4-Xo-kGw"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QlO-NK-mLv">
+                                <rect key="frame" x="532" y="44" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="MOu-pZ-kgD"/>
+                                    <constraint firstAttribute="width" constant="32" id="UTg-Nw-jWc"/>
+                                </constraints>
+                                <state key="normal" image="info"/>
+                                <connections>
+                                    <action selector="infoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gHc-ZP-bxb"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TwX-HU-KzB" userLabel="Timer">
+                                <rect key="frame" x="277" y="340" width="47" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvX-aM-Uzf">
+                                        <rect key="frame" x="0.0" y="0.0" width="47" height="28"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="time">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njU-15-wwO">
+                                        <rect key="frame" x="0.0" y="28" width="47" height="20"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="suffix">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.64815117801047117" green="0.58112640484699307" blue="0.52282377990953377" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="TwX-HU-KzB" firstAttribute="centerX" secondItem="4Yl-pw-TK5" secondAttribute="centerX" id="02b-LN-HLk"/>
+                            <constraint firstAttribute="trailing" secondItem="QlO-NK-mLv" secondAttribute="trailing" constant="20" id="3RV-Sg-IwN"/>
+                            <constraint firstItem="QlO-NK-mLv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="WXD-RP-BJc"/>
+                            <constraint firstItem="4Yl-pw-TK5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zgg-9w-sie"/>
+                            <constraint firstItem="4Yl-pw-TK5" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="m7u-xG-msL"/>
+                            <constraint firstItem="TwX-HU-KzB" firstAttribute="top" secondItem="4Yl-pw-TK5" secondAttribute="bottom" constant="40" id="nZv-tF-7jY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QlO-NK-mLv" secondAttribute="trailing" constant="16" id="zDV-sO-jpg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="canBuy" destination="74P-hy-GKK" id="TNf-oL-g0k"/>
+                        <outlet property="suffix" destination="njU-15-wwO" id="hPS-n6-ySy"/>
+                        <outlet property="time" destination="lvX-aM-Uzf" id="MLC-68-Hxe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="213"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="info" width="128" height="128"/>
+    </resources>
+</document>
