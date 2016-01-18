@@ -14,3 +14,4 @@ Projects done while learning Swift development for iOS/MacOS.
 ## Projects
 
 1. [BoozeBuy](/BoozeBuy): In Thailand (where I live) alcohol can only be bought from stores at specific times. This app helps you to remember when.
+2. [TakeMeTo](/TakeMeTo): Select a country from the list of all countries, and the map will take you to its geographical center.

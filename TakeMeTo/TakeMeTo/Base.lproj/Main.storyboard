@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dt0-0L-NqN">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="dSl-EE-e40">
+            <objects>
+                <viewController id="Dt0-0L-NqN" customClass="ViewController" customModule="TakeMeTo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aKz-Ff-rzu"/>
+                        <viewControllerLayoutGuide type="bottom" id="0sq-3J-OXa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Fa-vE-wgK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy8-gh-Z7O">
+                                <rect key="frame" x="21" y="20" width="100" height="30"/>
+                                <state key="normal" title="Select country"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="rWg-xh-lXH"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hiu-Vx-Qei">
+                                <rect key="frame" x="0.0" y="52" width="600" height="548"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSR-l3-1dZ">
+                                <rect key="frame" x="469" y="20" width="111" height="30"/>
+                                <state key="normal" title="Current location"/>
+                                <connections>
+                                    <action selector="goToCurrentLocation:" destination="Dt0-0L-NqN" eventType="touchUpInside" id="l86-gN-RYd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hiu-Vx-Qei" firstAttribute="top" secondItem="Oy8-gh-Z7O" secondAttribute="bottom" constant="2" id="3EM-KC-blb"/>
+                            <constraint firstItem="Oy8-gh-Z7O" firstAttribute="leading" secondItem="6Fa-vE-wgK" secondAttribute="leadingMargin" constant="1" id="K1P-mR-Cdf"/>
+                            <constraint firstItem="Hiu-Vx-Qei" firstAttribute="leading" secondItem="6Fa-vE-wgK" secondAttribute="leading" id="R7p-ir-Iyn"/>
+                            <constraint firstItem="SSR-l3-1dZ" firstAttribute="trailing" secondItem="6Fa-vE-wgK" secondAttribute="trailingMargin" id="ZWB-Ag-7qc"/>
+                            <constraint firstAttribute="trailing" secondItem="Hiu-Vx-Qei" secondAttribute="trailing" id="Zpg-UR-iBQ"/>
+                            <constraint firstItem="Hiu-Vx-Qei" firstAttribute="bottom" secondItem="0sq-3J-OXa" secondAttribute="top" id="uxb-5s-Jts"/>
+                            <constraint firstItem="SSR-l3-1dZ" firstAttribute="top" secondItem="aKz-Ff-rzu" secondAttribute="bottom" id="yNV-Az-OuF"/>
+                            <constraint firstItem="SSR-l3-1dZ" firstAttribute="baseline" secondItem="Oy8-gh-Z7O" secondAttribute="baseline" id="zfw-qC-hIR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Hiu-Vx-Qei" id="Swn-uG-SVn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zIq-8V-bem" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278" y="-151"/>
+        </scene>
+        <!--Countries View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CountriesViewController" customModule="TakeMeTo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BRf-sU-fAN">
+                                <rect key="frame" x="0.0" y="28" width="600" height="572"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9Ts-gg-IKz"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dQ8-8Y-4ui"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BRf-sU-fAN" secondAttribute="trailing" id="57h-xL-aug"/>
+                            <constraint firstItem="BRf-sU-fAN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7Cb-Ry-yFt"/>
+                            <constraint firstItem="BRf-sU-fAN" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="RIe-GU-OsH"/>
+                            <constraint firstItem="BRf-sU-fAN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="bTa-mU-jHr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="BRf-sU-fAN" id="5Ns-QZ-yA8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="-151"/>
+        </scene>
+    </scenes>
+</document>
