@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     self.locationManager.requestWhenInUseAuthorization()
   }
   
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
     if let country = country {
@@ -35,11 +35,11 @@ class ViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
-  @IBAction func goToCurrentLocation(sender: AnyObject) {
+  @IBAction func goToCurrentLocation(_ sender: AnyObject) {
     locationManager.requestLocation()
   }
   
-  func updateMapLocation(coordinate: CLLocationCoordinate2D) {
+  func updateMapLocation(_ coordinate: CLLocationCoordinate2D) {
     let region = MKCoordinateRegionMake(coordinate, MKCoordinateSpan(latitudeDelta: 4, longitudeDelta: 4))
     self.mapView.setRegion(region, animated: true)
   }
@@ -47,11 +47,11 @@ class ViewController: UIViewController {
 
 extension ViewController: CLLocationManagerDelegate {
   // MARK: CLLocationManagerDelegate
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     updateMapLocation((locations.last?.coordinate)!)    
   }
   
-  func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print(error)
   }
 }

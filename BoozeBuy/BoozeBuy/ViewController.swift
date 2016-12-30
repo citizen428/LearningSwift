@@ -20,7 +20,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     update()
-    NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "update", userInfo: nil, repeats: true)
+    Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
   }
   
   func update() {
@@ -31,11 +31,11 @@ class ViewController: UIViewController {
     self.suffix.text = message
   }
   
-  @IBAction func infoPressed(sender: AnyObject) {
+  @IBAction func infoPressed(_ sender: AnyObject) {
     let title = "You can buy alcohol from 11:00-14:00 (11am-2pm) and 17:00-24:00 (5pm-12am), not taking into account Buddhist holidays or election days."
-    let alertView = UIAlertController(title: "Alcohol sales in Thailand", message: title, preferredStyle: .Alert)
-    alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-    presentViewController(alertView, animated: true, completion: nil)
+    let alertView = UIAlertController(title: "Alcohol sales in Thailand", message: title, preferredStyle: .alert)
+    alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+    present(alertView, animated: true, completion: nil)
   }
 }
 

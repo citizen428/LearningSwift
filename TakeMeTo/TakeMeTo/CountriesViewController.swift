@@ -309,7 +309,7 @@ class CountriesViewController: UIViewController {
   ]
   
   var countryKeys: [String] {
-    return Array(countries.keys).sort()
+    return Array(countries.keys).sorted()
   }
   
   var filteredCountries = [Country]()
@@ -327,7 +327,7 @@ class CountriesViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
-  private func searchControllerSetup() {
+  fileprivate func searchControllerSetup() {
     searchController.searchResultsUpdater = self
     searchController.dimsBackgroundDuringPresentation = false
     definesPresentationContext = true
@@ -337,27 +337,27 @@ class CountriesViewController: UIViewController {
 
 extension CountriesViewController {
   // MARK: Filtering
-  func filterContentForSearchText(searchText: String) {
+  func filterContentForSearchText(_ searchText: String) {
     filteredCountries = []
     
     for values in countries.values {
       let filtered = values.filter { country in
-        country.name.lowercaseString.containsString(searchText.lowercaseString)
+        country.name.lowercased().contains(searchText.lowercased())
       }
-      filteredCountries.appendContentsOf(filtered)
+      filteredCountries.append(contentsOf: filtered)
     }
-    filteredCountries.sortInPlace { $0.name < $1.name }
+    filteredCountries.sort { $0.name < $1.name }
     tableView.reloadData()
   }
   
   func isSearch() -> Bool {
-    return searchController.active && searchController.searchBar.text != ""
+    return searchController.isActive && searchController.searchBar.text != ""
   }
 }
 
 extension CountriesViewController: UISearchResultsUpdating {
   // MARK: UISearchResultsUpdating
-  func updateSearchResultsForSearchController(searchController: UISearchController) {
+  func updateSearchResults(for searchController: UISearchController) {
     filterContentForSearchText(searchController.searchBar.text!)
   }
 }
@@ -365,15 +365,15 @@ extension CountriesViewController: UISearchResultsUpdating {
 
 extension CountriesViewController: UITableViewDataSource {
   // MARK: UITableViewDataSource
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    if searchController.active && searchController.searchBar.text != "" {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    if searchController.isActive && searchController.searchBar.text != "" {
       return 1
     } else {
       return countryKeys.count
     }
   }
   
-  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if isSearch() {
       return nil
     } else {
@@ -381,14 +381,14 @@ extension CountriesViewController: UITableViewDataSource {
     }
   }
   
-  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+  func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
     if(index == 0) {
       tableView.scrollRectToVisible((tableView.tableHeaderView?.frame)!, animated: false)
     }
     return index-1
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if isSearch() {
       return filteredCountries.count
     } else {
@@ -397,7 +397,7 @@ extension CountriesViewController: UITableViewDataSource {
     }
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell()
     let key = countryKeys[indexPath.section]
     let country: Country
@@ -410,25 +410,25 @@ extension CountriesViewController: UITableViewDataSource {
     return cell
   }
   
-  func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+  func sectionIndexTitles(for tableView: UITableView) -> [String]? {
     return [UITableViewIndexSearch] + countryKeys
   }
 }
 
 extension CountriesViewController: UITableViewDelegate {
   // MARK: UITableViewDelegate
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let country: Country
     
     if isSearch() {
       country = filteredCountries[indexPath.row]
-      dismissViewControllerAnimated(true, completion: nil)
+      dismiss(animated: true, completion: nil)
     } else {
       let key = countryKeys[indexPath.section]
       country = countries[key]![indexPath.row]
     }
     
     (self.presentingViewController as! ViewController).country = country
-    dismissViewControllerAnimated(true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
 }
